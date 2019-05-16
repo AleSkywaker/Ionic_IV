@@ -1,9 +1,27 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-title color="primary">Entrar</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding class="customImage">
+  <h1 text-center>
+    <ion-icon name="log-in" color="primary" class="icon-Xem"></ion-icon>
+  </h1>
 
+  <ion-item>
+    <ion-icon name="mail" color="primary" slot="start"></ion-icon>
+    <ion-input type="email" placeholder="Email" inputmode="email" autofocus="true"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-icon name="lock" color="primary" slot="start"></ion-icon>
+    <ion-input type="password" placeholder="Password"></ion-input>
+  </ion-item>
+
+  <ion-button expand="block">Entrar</ion-button>
+  <ion-button expand="block" fill="outline">Crear cuenta</ion-button>
+  <ion-button expand="block">
+    <ion-icon name="logo-facebook" slot="start"></ion-icon>
+    Entrar con Facebook
+  </ion-button>
 </ion-content>

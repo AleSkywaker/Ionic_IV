@@ -6,8 +6,15 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 
 import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { env } from '../../environments/env';
+
 @NgModule({
-  imports: [IonicModule.forRoot(), AngularFireModule],
+  imports: [
+    IonicModule.forRoot(),
+    AngularFireModule.initializeApp(env.firebaseConfig),
+    AngularFireAuthModule
+  ],
   exports: [BrowserModule, IonicModule],
   providers: [
     StatusBar,

@@ -16,8 +16,11 @@ export class AuthService {
     } else {
       operation = isSignIn ? this.signInWithEmail(user) : this.signUpWithEmail(user);
     }
-
     return operation;
+  }
+
+  logout(): Promise<void> {
+    return this.afAuth.auth.signOut();
   }
 
   private signInWithEmail({ email, password }: User): Promise<auth.UserCredential> {

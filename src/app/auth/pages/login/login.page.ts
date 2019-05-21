@@ -48,8 +48,13 @@ export class LoginPage implements OnInit {
       ? this.authForm.addControl('name', this.nameControl)
       : this.authForm.removeControl('name');
   }
-  onSubmit(provider: AuthProvider): void {
-    console.log('authform ', this.authForm.value);
-    console.log('provider ', provider);
+  async onSubmit(provider: AuthProvider): Promise<void> {
+    try {
+      const credentials = await this.authService.authenticate({
+        isSignIn: this.configs.isSignIn,
+        user: this.authForm.value,
+        provider
+      });
+    } catch (e) {}
   }
 }

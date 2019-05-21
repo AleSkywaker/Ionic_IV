@@ -48,7 +48,7 @@ export class LoginPage implements OnInit {
       ? this.authForm.addControl('name', this.nameControl)
       : this.authForm.removeControl('name');
   }
-  onSubmit(): void {
+  onSubmit(provider: AuthProvider): void {
     console.log('authform ', this.authForm.value);
   }
 }

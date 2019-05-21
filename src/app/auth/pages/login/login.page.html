@@ -3,7 +3,7 @@
     <ion-icon name="log-in" color="primary" class="icon-Xem"></ion-icon>
   </h1>
 
-  <form [formGroup]="authForm" (submit)="onSubmit()">
+  <form [formGroup]="authForm" (submit)="onSubmit(authProvider.Email)">
 
     <ng-container *ngIf="!configs.isSignIn">
       <ion-item>

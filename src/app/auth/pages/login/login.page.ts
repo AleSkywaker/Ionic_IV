@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { AuthService } from '../../../core/services/auth.service';
+import { AuthProvider } from '../../../core/services/auth.types';
 
 @Component({
   selector: 'app-login',
@@ -9,6 +10,7 @@ import { AuthService } from '../../../core/services/auth.service';
 })
 export class LoginPage implements OnInit {
   authForm: FormGroup;
+  authProvider = AuthProvider;
   configs = {
     isSignIn: true,
     action: 'Login',

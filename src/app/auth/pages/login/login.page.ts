@@ -50,5 +50,6 @@ export class LoginPage implements OnInit {
   }
   onSubmit(provider: AuthProvider): void {
     console.log('authform ', this.authForm.value);
+    console.log('provider ', provider);
   }
 }

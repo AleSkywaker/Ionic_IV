@@ -54,6 +54,7 @@ export class LoginPage implements OnInit {
       : this.authForm.removeControl('name');
   }
   async onSubmit(provider: AuthProvider): Promise<void> {
+    const loading = await this.overlayService.loading({ message: 'Cargando.........' });
     try {
       const credentials = await this.authService.authenticate({
         isSignIn: this.configs.isSignIn,
@@ -64,6 +65,9 @@ export class LoginPage implements OnInit {
       console.log('Redirecting.......');
     } catch (e) {
       console.log('Auth error: ', e);
+      await this.overlayService.toast({ message: e.message });
+    } finally {
+      loading.dismiss();
     }
   }
 }

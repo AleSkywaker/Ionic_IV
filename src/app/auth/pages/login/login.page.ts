@@ -1,3 +1,4 @@
+import { OverlayService } from './../../../core/services/overlay.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { AuthService } from '../../../core/services/auth.service';
@@ -17,7 +18,11 @@ export class LoginPage implements OnInit {
     actionChange: 'Create account'
   };
   private nameControl = new FormControl('', [Validators.required, Validators.minLength(4)]);
-  constructor(private authService: AuthService, private fb: FormBuilder) {}
+  constructor(
+    private authService: AuthService,
+    private fb: FormBuilder,
+    private overlayService: OverlayService
+  ) {}
 
   ngOnInit(): void {
     this.createForm();

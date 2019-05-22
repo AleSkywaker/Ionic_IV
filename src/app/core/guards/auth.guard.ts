@@ -9,5 +9,7 @@ import { AuthService } from '../services/auth.service';
 export class AuthGuard {
   constructor(private authService: AuthService) {}
 
-  private checkAuthState(redirect: string): Observable<boolean> {}
+  private checkAuthState(redirect: string): Observable<boolean> {
+    return this.authService.isAtuthenticate;
+  }
 }

@@ -10,7 +10,7 @@ import {
   UrlSegment
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { take, tap } from 'rxjs/operators';
 import { AuthService } from '../services/auth.service';
 
 @Injectable({
@@ -26,7 +26,13 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
     return this.canActivate(route, state);
   }
 
-  canLoad(route: Route, segments: UrlSegment[]): Observable<boolean> {}
+  canLoad(route: Route, segments: UrlSegment[]): Observable<boolean> {
+    // task edit 9
+    // /task /edit /9
+    // /tasks/edit/9
+    const url = segments.map(s => `/${s}`).join('');
+    return this.checkAuthState(url).pipe(take(1));
+  }
   private checkAuthState(redirect: string): Observable<boolean> {
     return this.authService.isAtuthenticate.pipe(
       tap(is => {

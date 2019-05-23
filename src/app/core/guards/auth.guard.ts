@@ -20,7 +20,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
     return this.checkAuthState(state.url);
   }
   canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-    return this.checkAuthState(state.url);
+    return this.canActivate(route, state);
   }
   private checkAuthState(redirect: string): Observable<boolean> {
     return this.authService.isAtuthenticate.pipe(

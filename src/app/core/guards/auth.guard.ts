@@ -4,8 +4,10 @@ import {
   CanActivate,
   CanActivateChild,
   CanLoad,
+  Route,
   Router,
-  RouterStateSnapshot
+  RouterStateSnapshot,
+  UrlSegment
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
@@ -23,6 +25,8 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
   canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
     return this.canActivate(route, state);
   }
+
+  canLoad(route: Route, segments: UrlSegment[]): Observable<boolean> {}
   private checkAuthState(redirect: string): Observable<boolean> {
     return this.authService.isAtuthenticate.pipe(
       tap(is => {

@@ -7,7 +7,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: './pages/tasks-list/tasks-list.module.ts#TasksListPageModule'
+        loadChildren: './pages/tasks-list/tasks-list.module#TasksListPageModule'
       }
     ]
   }

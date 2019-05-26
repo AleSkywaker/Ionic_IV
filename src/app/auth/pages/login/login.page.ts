@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { NavController } from '@ionic/angular';
 import { AuthService } from '../../../core/services/auth.service';
 import { AuthProvider } from '../../../core/services/auth.types';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -23,6 +24,7 @@ export class LoginPage implements OnInit {
     private authService: AuthService,
     private fb: FormBuilder,
     private navCtrl: NavController,
+    private route: ActivatedRoute,
     private overlayService: OverlayService
   ) {}
 
@@ -66,7 +68,7 @@ export class LoginPage implements OnInit {
       console.log('usuario autenticato', credentials);
       console.log('Redirecting.......');
       // Ionic 3 push, pop, Root empieza nueva pila de navegación
-      this.navCtrl.navigateForward('/');
+      this.navCtrl.navigateForward('/tasks');
     } catch (e) {
       console.log('Auth error: ', e);
       await this.overlayService.toast({ message: e.message });

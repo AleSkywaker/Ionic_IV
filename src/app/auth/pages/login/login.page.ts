@@ -1,9 +1,9 @@
 import { OverlayService } from './../../../core/services/overlay.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { NavController } from '@ionic/angular';
 import { AuthService } from '../../../core/services/auth.service';
 import { AuthProvider } from '../../../core/services/auth.types';
-import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',

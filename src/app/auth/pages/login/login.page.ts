@@ -65,6 +65,8 @@ export class LoginPage implements OnInit {
       });
       console.log('usuario autenticato', credentials);
       console.log('Redirecting.......');
+      // Ionic 3 push, pop, Root empieza nueva pila de navegación
+      this.navCtrl.navigateForward('/');
     } catch (e) {
       console.log('Auth error: ', e);
       await this.overlayService.toast({ message: e.message });

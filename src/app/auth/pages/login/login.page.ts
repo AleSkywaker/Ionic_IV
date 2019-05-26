@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { AuthService } from '../../../core/services/auth.service';
 import { AuthProvider } from '../../../core/services/auth.types';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -21,6 +22,7 @@ export class LoginPage implements OnInit {
   constructor(
     private authService: AuthService,
     private fb: FormBuilder,
+    private navCtrl: NavController,
     private overlayService: OverlayService
   ) {}
 

@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { TaskItemComponent } from './task-item/task-item.component';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  declarations: [TaskItemComponent],
+  imports: [SharedModule],
+  exports: [TaskItemComponent]
 })
-export class ComponentsModule { }
+export class ComponentsModule {}

@@ -1,7 +1,7 @@
 <ion-item-sliding #sliding>
   <ion-item (click)="update.emit()">
     {{task.title}}
-    <ion-toggle slot="end" color="warning" [checked]="task.done" (ionChenge)="done.emit(task)"
+    <ion-toggle slot="end" color="secondary" [checked]="task.done" (ionChenge)="done.emit(task)"
       (click)="$event.stopPropagation()"></ion-toggle>
   </ion-item>
 
@@ -9,8 +9,8 @@
     <ion-item-option color="danger" (click)="delete.emit(task); sliding.close()">
       <ion-icon slot="icon-only" name="trash"></ion-icon>
     </ion-item-option>
-    <ion-item-option color="danger">
-      <ion-icon slot="icon-only" name="create" (click)="update.emit(task) sliding.close()"></ion-icon>
+    <ion-item-option color="primary">
+      <ion-icon slot="icon-only" name="create" (click)="update.emit(task); sliding.close()"></ion-icon>
     </ion-item-option>
   </ion-item-options>
 </ion-item-sliding>

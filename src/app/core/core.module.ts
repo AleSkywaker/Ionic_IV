@@ -7,13 +7,15 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { env } from '../../environments/env';
 
 @NgModule({
   imports: [
     IonicModule.forRoot(),
     AngularFireModule.initializeApp(env.firebaseConfig),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFirestoreModule
   ],
   exports: [BrowserModule, IonicModule],
   providers: [

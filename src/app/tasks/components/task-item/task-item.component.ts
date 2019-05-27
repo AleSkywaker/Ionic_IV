@@ -7,6 +7,7 @@ import { Task } from '../../models/task.model';
   styleUrls: ['./task-item.component.scss']
 })
 export class TaskItemComponent {
+  constructor() {}
   // <app-task-item [task]="task" (done)="onDone($event)"></app-task-item>
   @Input() task: Task;
   @Output() done = new EventEmitter<Task>();

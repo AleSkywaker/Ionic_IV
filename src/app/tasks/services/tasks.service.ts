@@ -13,5 +13,13 @@ export class TasksService extends Firestore<Task> {
     this.init();
   }
 
-  private init(): void {}
+  private init(): void {
+    this.authService.authState$.subscribe(user => {
+      if (user) {
+        this.setCollection(`/users/${user.uid}/tasks`);
+        return;
+      }
+      this.setCollection(null);
+    });
+  }
 }

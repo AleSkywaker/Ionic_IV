@@ -6,9 +6,13 @@
 
 <ion-content padding>
 
-  <ion-list>
-    <!-- <ion-item>Aprender Ionic</ion-item> -->
-    <app-task-item *ngFor="let tarea of (tasks$ | async)" [task]="tarea"></app-task-item>
+  <ion-list *ngIf="(tasks$ | async) as tasks">
+    <ng-container *ngIf="tasks.length > 0; else noTasks">
+      <app-task-item *ngFor="let tarea of tasks" [task]="tarea"></app-task-item>
+    </ng-container>
+    <ng-template #noTasks>
+      <ion-item lines="none">No hay tares todavia...</ion-item>
+    </ng-template>
   </ion-list>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">

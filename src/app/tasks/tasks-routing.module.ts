@@ -8,13 +8,17 @@ const routes: Routes = [
     canActivateChild: [AuthGuard],
     children: [
       {
+        path: 'create',
+        loadChildren: './pages/task-save/task-save.module#TaskSavePageModule',
+        canLoad: [AuthGuard]
+      },
+      {
         path: '',
         loadChildren: './pages/tasks-list/tasks-list.module#TasksListPageModule',
         canLoad: [AuthGuard]
       }
     ]
-  },
-  { path: 'task-save', loadChildren: './pages/task-save/task-save.module#TaskSavePageModule' }
+  }
 ];
 
 @NgModule({

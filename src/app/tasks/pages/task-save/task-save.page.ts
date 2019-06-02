@@ -21,4 +21,8 @@ export class TaskSavePage implements OnInit {
       done: [false]
     });
   }
+
+  onSubmit(): void {
+    console.log('Tasks: ', this.taskForm.value);
+  }
 }

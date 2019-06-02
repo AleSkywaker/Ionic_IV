@@ -8,12 +8,14 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-item>
-    <ion-icon name="paper" slot="start" color="secondary"></ion-icon>
-    <ion-input type="text" placeholder="Title" autofocus="true" inputmode="text">
-    </ion-input>
-  </ion-item>
-  <ion-button expand="full" type="submit" color="secondary">
-    Guardar
-  </ion-button>
+  <form [formGroup]="taskForm">
+    <ion-item>
+      <ion-icon name="paper" slot="start" color="secondary"></ion-icon>
+      <ion-input type="text" placeholder="Title" autofocus="true" inputmode="text" formControlName="title">
+      </ion-input>
+    </ion-item>
+    <ion-button expand="full" type="submit" color="secondary" [disabled]="taskForm.invalid">
+      Guardar
+    </ion-button>
+  </form>
 </ion-content>

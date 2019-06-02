@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { TasksService } from '../../services/tasks.service';
 
 @Component({
   selector: 'app-task-save',
@@ -9,7 +10,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class TaskSavePage implements OnInit {
   taskForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private tasksService: TasksService) {}
 
   ngOnInit(): void {
     this.createForm();

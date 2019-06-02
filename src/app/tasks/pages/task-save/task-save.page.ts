@@ -26,6 +26,7 @@ export class TaskSavePage implements OnInit {
   async onSubmit(): Promise<void> {
     try {
       const task = await this.tasksService.create(this.taskForm.value);
+      console.log('Tarea creada ', task);
     } catch (error) {
       console.log('Error saving task: ', error);
     }

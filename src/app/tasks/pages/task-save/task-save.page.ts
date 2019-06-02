@@ -23,7 +23,11 @@ export class TaskSavePage implements OnInit {
     });
   }
 
-  onSubmit(): void {
-    console.log('Tasks: ', this.taskForm.value);
+  async onSubmit(): Promise<void> {
+    try {
+      const task = await this.tasksService.create(this.taskForm.value);
+    } catch (error) {
+      console.log('Error saving task: ', error);
+    }
   }
 }

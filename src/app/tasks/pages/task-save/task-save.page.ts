@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TasksService } from '../../services/tasks.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-task-save',
@@ -10,7 +11,11 @@ import { TasksService } from '../../services/tasks.service';
 export class TaskSavePage implements OnInit {
   taskForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private tasksService: TasksService) {}
+  constructor(
+    private fb: FormBuilder,
+    private navCtrl: NavController,
+    private tasksService: TasksService
+  ) {}
 
   ngOnInit(): void {
     this.createForm();
@@ -27,6 +32,7 @@ export class TaskSavePage implements OnInit {
     try {
       const task = await this.tasksService.create(this.taskForm.value);
       console.log('Tarea creada ', task);
+      this.navCtrl.navigateBack('/tasks');
     } catch (error) {
       console.log('Error saving task: ', error);
     }

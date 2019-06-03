@@ -16,7 +16,7 @@ export class TasksListPage implements OnInit {
     this.tasks$ = this.taskService.getAll();
   }
 
-  onUpdate(ev: Task) {
-    console.log('evento ', ev.title);
+  onUpdate(task: Task): void {
+    console.log('evento ', task.title);
   }
 }

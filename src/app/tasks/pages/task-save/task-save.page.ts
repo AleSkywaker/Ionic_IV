@@ -40,6 +40,9 @@ export class TaskSavePage implements OnInit {
       this.navCtrl.navigateBack('/tasks');
     } catch (error) {
       console.log('Error saving task: ', error);
+      await this.overlayService.toast({
+        message: error.message
+      });
     } finally {
       loading.dismiss();
     }

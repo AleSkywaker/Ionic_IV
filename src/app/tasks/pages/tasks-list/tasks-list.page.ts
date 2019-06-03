@@ -19,5 +19,7 @@ export class TasksListPage implements OnInit {
 
   onUpdate(task: Task): void {
     console.log('evento ', task.title);
+    this.navCtrl.navigateForward(`/tasks/edit/${task.id}`);
+    // this.navCtrl.navigateForward(['tasks', 'edit', task.id]);
   }
 }

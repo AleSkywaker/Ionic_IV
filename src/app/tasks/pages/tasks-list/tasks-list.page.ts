@@ -15,4 +15,8 @@ export class TasksListPage implements OnInit {
   ngOnInit() {
     this.tasks$ = this.taskService.getAll();
   }
+
+  onUpdate(ev: Task) {
+    console.log('evento ', ev.title);
+  }
 }

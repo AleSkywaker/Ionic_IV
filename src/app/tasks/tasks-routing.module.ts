@@ -13,6 +13,11 @@ const routes: Routes = [
         canLoad: [AuthGuard]
       },
       {
+        path: 'edit/:id',
+        loadChildren: './pages/task-save/task-save.module#TaskSavePageModule',
+        canLoad: [AuthGuard]
+      },
+      {
         path: '',
         loadChildren: './pages/tasks-list/tasks-list.module#TasksListPageModule',
         canLoad: [AuthGuard]

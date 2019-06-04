@@ -12,7 +12,7 @@ import { OverlayService } from 'src/app/core/services/overlay.service';
 export class TaskSavePage implements OnInit {
   taskForm: FormGroup;
   pageTitle = '...';
-
+  taskId: string = undefined;
   constructor(
     private fb: FormBuilder,
     private navCtrl: NavController,

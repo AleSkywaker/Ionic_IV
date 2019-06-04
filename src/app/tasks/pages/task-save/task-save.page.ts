@@ -28,6 +28,10 @@ export class TaskSavePage implements OnInit {
     this.init();
   }
 
+  init(): void {
+    const taskId = this.route.snapshot.paramMap.get('id');
+  }
+
   private createForm(): void {
     this.taskForm = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(3)]],

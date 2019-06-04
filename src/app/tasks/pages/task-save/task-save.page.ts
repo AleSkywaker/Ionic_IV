@@ -30,6 +30,12 @@ export class TaskSavePage implements OnInit {
 
   init(): void {
     const taskId = this.route.snapshot.paramMap.get('id');
+    if (!taskId) {
+      this.pageTitle = 'Crear Tarea';
+    }
+    this.taskId = taskId;
+    console.log('taskId: ', taskId);
+    this.pageTitle = 'Editar Tarea';
   }
 
   private createForm(): void {

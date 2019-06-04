@@ -11,6 +11,7 @@ import { OverlayService } from 'src/app/core/services/overlay.service';
 })
 export class TaskSavePage implements OnInit {
   taskForm: FormGroup;
+  pageTitle = '....';
 
   constructor(
     private fb: FormBuilder,

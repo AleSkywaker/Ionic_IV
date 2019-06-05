@@ -58,12 +58,13 @@ export class TaskSavePage implements OnInit {
       message: 'Guardando....'
     });
     try {
-      !this.taskId
+      const task = !this.taskId
         ? await this.tasksService.create(this.taskForm.value)
         : await this.tasksService.update({
             id: this.taskId,
             ...this.taskForm.value
           });
+      console.log('Tarea guardada : ', task);
       this.navCtrl.navigateBack('/tasks');
     } catch (error) {
       console.log('Error saving task: ', error);

@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/tasks"></ion-back-button>
     </ion-buttons>
-    <ion-title>Crear tarea</ion-title>
+    <ion-title>{{pageTitle}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,6 +13,9 @@
       <ion-icon name="paper" slot="start" color="secondary"></ion-icon>
       <ion-input type="text" placeholder="Title" autofocus="true" inputmode="text" formControlName="title">
       </ion-input>
+      <ion-toggle *ngIf="taskId" slot="end" color="secondary" formControlName="done">
+
+      </ion-toggle>
     </ion-item>
     <ion-button expand="full" type="submit" color="secondary" [disabled]="taskForm.invalid">
       Guardar

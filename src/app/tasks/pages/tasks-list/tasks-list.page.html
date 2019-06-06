@@ -8,7 +8,8 @@
 
   <ion-list *ngIf="(tasks$ | async) as tasks">
     <ng-container *ngIf="tasks.length > 0; else noTasks">
-      <app-task-item *ngFor="let tarea of tasks" [task]="tarea" (update)="onUpdate($event)" (delete)="onDelete($event)">
+      <app-task-item *ngFor="let tarea of tasks" [task]="tarea" (update)="onUpdate($event)" (delete)="onDelete($event)"
+        (done)="onDone($event)">
       </app-task-item>
     </ng-container>
     <ng-template #noTasks>

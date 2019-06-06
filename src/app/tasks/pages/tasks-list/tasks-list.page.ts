@@ -45,7 +45,8 @@ export class TasksListPage implements OnInit {
     });
   }
 
-  async onDone(task: Task): Promise<void>{
-    
+  async onDone(task: Task): Promise<void> {
+    const taskToUpdate = { ...task, done: !task.done };
+    await this.taskService.update(taskToUpdate);
   }
 }

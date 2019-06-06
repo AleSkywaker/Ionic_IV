@@ -44,4 +44,8 @@ export class TasksListPage implements OnInit {
       ]
     });
   }
+
+  async onDone(task: Task): Promise<void>{
+    
+  }
 }

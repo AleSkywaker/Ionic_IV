@@ -11,6 +11,7 @@ import { OverlayService } from 'src/app/core/services/overlay.service';
   styleUrls: ['./tasks-list.page.scss']
 })
 export class TasksListPage implements OnInit {
+  done: boolean;
   tasks$: Observable<Task[]>;
   constructor(
     private navCtrl: NavController,
@@ -46,7 +47,12 @@ export class TasksListPage implements OnInit {
   }
 
   async onDone(task: Task): Promise<void> {
+    console.log(task);
+    this.done = task.done;
     const taskToUpdate = { ...task, done: !task.done };
     await this.taskService.update(taskToUpdate);
+    await this.overlayService.toast({
+      message: `Tarea ${task.title} ${taskToUpdate.done ? 'Completada' : 'Actualizada'}! `
+    });
   }
 }

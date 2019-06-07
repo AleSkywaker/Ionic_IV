@@ -1,7 +1,7 @@
 <ion-item-sliding #sliding>
-  <ion-item (click)="update.emit(task)">
+  <ion-item (click)="update.emit(task)" [ngClass]="{'class1' : task.done}">
     {{task.title}}
-    <ion-toggle slot="end" color="secondary" [checked]="task.done" (ionChenge)="done.emit(task)"
+    <ion-toggle slot="end" color="secondary" [checked]="task.done" (ionChange)="done.emit(task)"
       (click)="$event.stopPropagation()"></ion-toggle>
   </ion-item>
 

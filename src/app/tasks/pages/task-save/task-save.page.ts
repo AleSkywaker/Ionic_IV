@@ -33,6 +33,7 @@ export class TaskSavePage implements OnInit {
     const taskId = this.route.snapshot.paramMap.get('id');
     if (!taskId) {
       this.pageTitle = 'Crear Tarea';
+      return;
     }
     this.taskId = taskId;
     this.pageTitle = 'Editar Tarea';
@@ -63,6 +64,7 @@ export class TaskSavePage implements OnInit {
             id: this.taskId,
             ...this.taskForm.value
           });
+      console.log('tarea : ', task);
       this.navCtrl.navigateBack('/tasks');
     } catch (error) {
       await this.overlayService.toast({

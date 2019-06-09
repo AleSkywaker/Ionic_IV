@@ -1,8 +1,14 @@
 <ion-item-sliding #sliding>
-  <ion-item (click)="update.emit(task)" [ngClass]="{'class1' : task.done}">
-    {{task.title}}
-    <ion-toggle slot="end" color="secondary" [checked]="task.done" (ionChange)="done.emit(task)"
-      (click)="$event.stopPropagation()"></ion-toggle>
+  <ion-item (click)="update.emit(task)" [ngClass]="{ class1: task.done }">
+    {{ task.title }}
+    <ion-icon *ngIf="task.done" name="checkmark" color="danger"></ion-icon>
+    <ion-toggle
+      slot="end"
+      color="secondary"
+      [checked]="task.done"
+      (ionChange)="done.emit(task)"
+      (click)="$event.stopPropagation()"
+    ></ion-toggle>
   </ion-item>
 
   <ion-item-options side="start">
@@ -10,7 +16,11 @@
       <ion-icon slot="icon-only" name="trash"></ion-icon>
     </ion-item-option>
     <ion-item-option color="primary">
-      <ion-icon slot="icon-only" name="create" (click)="update.emit(task); sliding.close()"></ion-icon>
+      <ion-icon
+        slot="icon-only"
+        name="create"
+        (click)="update.emit(task); sliding.close()"
+      ></ion-icon>
     </ion-item-option>
   </ion-item-options>
 </ion-item-sliding>

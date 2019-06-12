@@ -10,7 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 })
 export class AppComponent {
   pages: { url: string; direction: string; icon: string; text: string }[];
-
+  user: firebase.User;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,

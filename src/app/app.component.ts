@@ -26,6 +26,9 @@ export class AppComponent {
       { url: '/tasks', direction: 'back', icon: 'checkmark', text: 'Tareas' },
       { url: '/tasks/create', direction: 'forward', icon: 'add', text: 'Nueva tarea' }
     ];
+    this.authService.authState$.subscribe(user => {
+      this.user = user;
+    });
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();

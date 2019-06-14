@@ -1,12 +1,11 @@
 <ion-header>
   <ion-toolbar color="secondary">
     <app-menu-toggle slot="start" menu="main-menu"></app-menu-toggle>
-    <ion-title>Lista de tareas</ion-title>
+    <ion-title>Lista de tareas de {{ user.displayName }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-
   <ion-list *ngIf="(tasks$ | async) as tasks">
     <ng-container *ngIf="tasks.length > 0; else noTasks">
       <app-task-item *ngFor="let tarea of tasks" [task]="tarea" (update)="onUpdate($event)" (delete)="onDelete($event)"

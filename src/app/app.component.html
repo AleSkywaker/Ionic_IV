@@ -8,6 +8,7 @@
 
     <ion-content>
       <ion-list>
+        <ion-list-header *ngIf="user">{{ user.displayName }}</ion-list-header>
         <ion-menu-toggle autoHide="false">
           <ion-item button *ngFor="let pagina of pages" [routerLink]="pagina.url" [routerDirection]="pagina.direction">
             <ion-icon slot="start" [name]="pagina.icon">

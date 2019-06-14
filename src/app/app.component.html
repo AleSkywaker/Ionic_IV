@@ -2,13 +2,13 @@
   <ion-menu contentId="menu-content" menuId="main-menu">
     <ion-header>
       <ion-toolbar color="secondary">
-        <ion-title>Menu</ion-title>
+        <ion-title *ngIf="user">Menu de {{ user.displayName }}</ion-title>
       </ion-toolbar>
     </ion-header>
 
     <ion-content>
       <ion-list>
-        <ion-list-header *ngIf="user">{{ user.displayName }}</ion-list-header>
+        <ion-list-header *ngIf="user" slot="center"> ¿Que puedes hacer? </ion-list-header>
         <ion-menu-toggle autoHide="false">
           <ion-item button *ngFor="let pagina of pages" [routerLink]="pagina.url" [routerDirection]="pagina.direction">
             <ion-icon slot="start" [name]="pagina.icon">

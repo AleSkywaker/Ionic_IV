@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="secondary">
     <app-menu-toggle slot="start" menu="main-menu"></app-menu-toggle>
-    <ion-title>Lista de tareas de {{ user.displayName }}</ion-title>
+    <ion-title *ngIf="user">Lista de tareas de {{ user.displayName }}</ion-title>
   </ion-toolbar>
 </ion-header>
 

@@ -23,7 +23,7 @@ export class AppComponent {
 
   initializeApp() {
     this.pages = [
-      { url: '/tasks', direction: 'back', icon: 'checkmark', text: 'Tareas' },
+      { url: '/tasks', direction: 'back', icon: 'checkmark', text: 'Ver mis tareas' },
       { url: '/tasks/create', direction: 'forward', icon: 'add', text: 'Nueva tarea' }
     ];
     this.authService.authState$.subscribe(user => {

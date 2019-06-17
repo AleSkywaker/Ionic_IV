@@ -1,5 +1,5 @@
 import { OverlayService } from './../../../core/services/overlay.service';
-import { NavController } from '@ionic/angular';
+import { NavController, MenuController } from '@ionic/angular';
 import { AuthService } from './../../../core/services/auth.service';
 import { Component, OnInit, Input } from '@angular/core';
 
@@ -17,6 +17,7 @@ export class LogoutButtonComponent implements OnInit {
   @Input() menu: string;
   constructor(
     private authService: AuthService,
+    private menuCtrl: MenuController,
     private navCtrl: NavController,
     private overlayService: OverlayService
   ) {}

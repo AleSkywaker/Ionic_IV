@@ -22,7 +22,11 @@ export class LogoutButtonComponent implements OnInit {
     private overlayService: OverlayService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit(): void {
+    if (!this.menuCtrl.isEnabled(this.menu)) {
+      this.menuCtrl.enable(true, this.menu);
+    }
+  }
 
   async logout(): Promise<void> {
     await this.overlayService.alert({
